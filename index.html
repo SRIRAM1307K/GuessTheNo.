@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Guess the Correct number between 1 to 10</h1>
+    <input id="guessNumber">
+    <button id="check" onclick="check()">Check</button>
+    <p id="result">You are ______</p>
+    <p id="score"> Remaining Chance: 7</p>
+
+
+    <script>
+        var guessNumber = document.getElementById("guessNumber");
+        var result = document.getElementById("result");
+        var randomNumber = Math.floor(Math.random()*10)+1;
+        var score = document.getElementById("score");
+        var totalScore = 7
+        function check() {
+            var enteredNumber = guessNumber.value;
+            if( randomNumber == enteredNumber ){
+                // console.log("You Are Right")
+                result.textContent = "You are Right";
+                alert("You Won")
+            }else{
+                // console.log("You are Wrong")
+                totalScore = totalScore - 1;
+                score.textContent = "Remaining Chance: "+ totalScore;
+                result.textContent = "You are Wrong!"
+                // alert("You are Wrong")
+            }
+            enteredNumber = guessNumber.value='';
+        }
+    </script>
+    
+</body>
+</html>
